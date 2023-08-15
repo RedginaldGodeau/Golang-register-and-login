@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+</head>
+<body>
+    <h1> Login </h1>
+    <form>
+        <label>
+            Email
+            <input type="email" name="email" placeholder="Your email..." required>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" placeholder="Your password..." required>
+        </label>
+        <button> Connection </button>
+        <label class="error"> </label>
+    </form>
+    <a href="/register"> Not account ? </a>
+
+
+    <script>
+        const errorElement = document.querySelector(".error")
+        const formElement = document.querySelector("form")
+
+        const errorLog = (err, success) => {
+            errorElement.innerHTML = err
+            errorElement.style.color = err ? "rgb(60,183,11)" : "rgb(183,11,11)"
+        }
+
+        formElement.addEventListener('submit', e => {
+            fetch('/loginConnection', { method: 'POST', body: new FormData(formElement)})
+                .then(response => {
+                    if (response.ok) {
+                        location.replace("/")
+                    } else {
+                        errorLog("Connection Error", false)
+                    }
+                })
+                .catch(error => errorLog("Connection Error", false));
+            e.preventDefault()
+        })
+    </script>
+
+</body>
+</html>

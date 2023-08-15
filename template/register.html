@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+    <h1> Register </h1>
+    <form action="/createAccount" method="POST">
+        <label>
+            Email
+            <input type="email" name="email" placeholder="Your email..." required>
+        </label>
+        <label>
+            Username
+            <input type="text" name="username" placeholder="Your name..." required>
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" placeholder="Your password..." required>
+        </label>
+        <button> Register </button>
+        <label class="error"> </label>
+    </form>
+    <a href="/login"> have a account ? </a>
+
+
+    <script>
+        const errorElement = document.querySelector(".error")
+        const formElement = document.querySelector("form")
+
+        const errorLog = (err, success) => {
+            errorElement.innerHTML = err
+            errorElement.style.color = err ? "rgb(60,183,11)" : "rgb(183,11,11)"
+        }
+
+        formElement.addEventListener('submit', e => {
+            fetch('/createAccount', { method: 'POST', body: new FormData(formElement)})
+                .then(response => {
+                    if (response.ok) {
+                        errorLog("Account Created", false)
+                    } else {
+                        errorLog("Connection Error", false)
+                    }
+                })
+                .catch(error => errorLog("Connection Error", false));
+            e.preventDefault()
+        })
+    </script>
+
+</body>
+</html>

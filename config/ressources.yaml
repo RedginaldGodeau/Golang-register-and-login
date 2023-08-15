@@ -1,0 +1,7 @@
+public:
+  pattern: "/public/"
+  path: "public"
+
+image:
+  pattern: "/img/"
+  path: "public/image"

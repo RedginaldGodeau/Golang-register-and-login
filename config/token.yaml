@@ -1,0 +1,2 @@
+login:
+  secret: "super-secret-auth-key"
