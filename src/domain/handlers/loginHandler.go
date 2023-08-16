@@ -2,9 +2,9 @@ package handlers
 
 import (
 	"fmt"
-	"main/internal/entity/account"
-	"main/model"
-	"main/model/token"
+	"main/src/domain/entity/account"
+	"main/src/model"
+	"main/src/model/token"
 	"net/http"
 	"time"
 )

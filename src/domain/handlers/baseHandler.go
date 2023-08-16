@@ -3,7 +3,7 @@ package handlers
 import (
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
-	"main/model/token"
+	"main/src/model/token"
 	"net/http"
 )
 

@@ -2,7 +2,7 @@ package account
 
 import (
 	sql2 "database/sql"
-	"main/model"
+	"main/src/model"
 	"os"
 	"time"
 )

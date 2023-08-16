@@ -1,8 +1,9 @@
 package main
 
 import (
-	"main/internal/handlers"
-	"main/model/handler"
+	"fmt"
+	"main/src/domain/handlers"
+	"main/src/model/handler"
 	"net/http"
 )
 
@@ -19,5 +20,6 @@ func main() {
 	http.HandleFunc("/register", handlers.RegisterHanlder)
 	http.HandleFunc("/createAccount", handlers.RegisterNewAccount)
 
+	fmt.Println("http://localhost:8080")
 	http.ListenAndServe(":8080", nil)
 }
