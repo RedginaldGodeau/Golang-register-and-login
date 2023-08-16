@@ -1,3 +1,0 @@
-base:
-  pattern: "/"
-  function: "handlers.BaseHandler"
