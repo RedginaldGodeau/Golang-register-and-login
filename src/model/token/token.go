@@ -1,8 +1,8 @@
 package token
 
 import (
-	"github.com/go-yaml/yaml"
 	"github.com/golang-jwt/jwt/v5"
+	"gopkg.in/yaml.v2"
 	"log"
 	"os"
 	"time"

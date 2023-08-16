@@ -31,7 +31,6 @@ func InitRessources() {
 	for _, v := range data {
 		pattern := v.Pattern
 		path := v.Path
-
 		http.Handle(pattern, http.StripPrefix(pattern, http.FileServer(http.Dir(path))))
 	}
 }

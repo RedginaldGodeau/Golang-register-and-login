@@ -3,7 +3,6 @@ module main
 go 1.21
 
 require (
-	github.com/go-yaml/yaml v2.1.0+incompatible
 	github.com/lib/pq v1.10.9
 )
 
