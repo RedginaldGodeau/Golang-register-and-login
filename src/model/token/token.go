@@ -13,7 +13,8 @@ type tokenConfig struct {
 }
 
 func getConfig(configName string) *tokenConfig {
-	config, err := os.ReadFile("config/token.yaml")
+	dir, _ := os.Getwd()
+	config, err := os.ReadFile(dir + "/config/token.yaml")
 	if err != nil {
 		log.Fatalln("[FILE READER]", err)
 	}

@@ -15,7 +15,8 @@ type ressource struct {
 }
 
 func InitRessources() {
-	config, err := os.ReadFile("config/ressources.yaml")
+	dir, _ := os.Getwd()
+	config, err := os.ReadFile(dir + "/config/ressources.yaml")
 	if err != nil {
 		log.Fatalln("[FILE READER]", err)
 	}
