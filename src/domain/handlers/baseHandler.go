@@ -11,13 +11,18 @@ func BaseHandler(w http.ResponseWriter, req *http.Request) {
 
 	accessToken, err := req.Cookie("accessToken")
 	if err != nil {
-		http.Redirect(w, req, "/login", http.StatusAccepted)
+		http.Redirect(w, req, "/login", http.StatusSeeOther)
 		return
 	}
 
 	t, err := token.IsValid(accessToken.Value, "login")
 	if err != nil {
-		http.Redirect(w, req, "/login", http.StatusAccepted)
+		http.Redirect(w, req, "/login", http.StatusSeeOther)
+		return
+	}
+
+	if t != nil {
+		http.Redirect(w, req, "/login", http.StatusSeeOther)
 		return
 	}
 
@@ -28,6 +33,5 @@ func BaseHandler(w http.ResponseWriter, req *http.Request) {
 	}
 
 	username := claims["values"].(string)
-
 	fmt.Fprintln(w, "Welcome Home ", username)
 }
