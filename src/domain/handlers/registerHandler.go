@@ -8,16 +8,12 @@ import (
 	"time"
 )
 
-func RegisterHanlder(w http.ResponseWriter, req *http.Request) {
+func (h *Handler) RegisterPage(w http.ResponseWriter, req *http.Request) {
 	page := model2.Page{Path: "register.html", Data: nil}
 	page.ShowTemplate(w)
 }
 
-func RegisterNewAccount(w http.ResponseWriter, req *http.Request) {
-	if req.Method != "POST" {
-		http.Redirect(w, req, "/register", http.StatusAccepted)
-		return
-	}
+func (h *Handler) RegisterNewAccount(w http.ResponseWriter, req *http.Request) {
 
 	emailForm := req.FormValue("email")
 	usernameForm := req.FormValue("username")

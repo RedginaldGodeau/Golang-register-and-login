@@ -9,12 +9,12 @@ import (
 	"time"
 )
 
-func LoginPage(w http.ResponseWriter, req *http.Request) {
+func (h *Handler) LoginPage(w http.ResponseWriter, req *http.Request) {
 	page := model.Page{Path: "login.html", Data: nil}
 	page.ShowTemplate(w)
 }
 
-func LoginListPage(w http.ResponseWriter, req *http.Request) {
+func (h *Handler) LoginListPage(w http.ResponseWriter, req *http.Request) {
 	accoutsList := account.GetAll()
 	if accoutsList == nil {
 		fmt.Fprintln(w, "Database Error")
@@ -27,11 +27,7 @@ func LoginListPage(w http.ResponseWriter, req *http.Request) {
 	}
 }
 
-func LoginConnection(w http.ResponseWriter, req *http.Request) {
-	if req.Method != "POST" {
-		http.Redirect(w, req, "/login", http.StatusAccepted)
-		return
-	}
+func (h *Handler) LoginConnection(w http.ResponseWriter, req *http.Request) {
 
 	emailForm := req.FormValue("email")
 	passwordForm := req.FormValue("password")

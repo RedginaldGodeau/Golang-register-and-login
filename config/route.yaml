@@ -1,0 +1,23 @@
+base:
+  pattern: "/"
+  function: "BaseHandler"
+
+login_page:
+  pattern: "/login"
+  function: "LoginPage"
+
+login_connection:
+  pattern: "/loginConnection"
+  function: "LoginConnection"
+  methods: ["POST"]
+  redirect: "/login"
+
+register_page:
+  pattern: "/register"
+  function: "RegisterPage"
+
+register_new_account:
+  pattern: "/createAccount"
+  function: "RegisterNewAccount"
+  methods: ["POST"]
+  redirect: "/register"

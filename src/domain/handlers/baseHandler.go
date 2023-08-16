@@ -3,11 +3,14 @@ package handlers
 import (
 	"fmt"
 	"github.com/golang-jwt/jwt/v5"
+	"main/src/model/handler"
 	"main/src/model/token"
 	"net/http"
 )
 
-func BaseHandler(w http.ResponseWriter, req *http.Request) {
+type Handler handler.Handler
+
+func (h *Handler) BaseHandler(w http.ResponseWriter, req *http.Request) {
 
 	accessToken, err := req.Cookie("accessToken")
 	if err != nil {
