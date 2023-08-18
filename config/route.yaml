@@ -12,6 +12,10 @@ login_connection:
   methods: ["POST"]
   redirect: "/login"
 
+login_list:
+  pattern: "/loginList"
+  function: "LoginListPage"
+
 register_page:
   pattern: "/register"
   function: "RegisterPage"
