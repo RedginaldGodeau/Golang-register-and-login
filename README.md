@@ -1,7 +1,7 @@
-# GoLang : Login & Register (Postgres & JWT)
+# GoLang [Micro Framework] : Login & Register (Postgres & JWT)
 
 ## 📑 DESCRIPTION
-A login and account creation project with posgreSQL as database and a connection token with JWT
+A login and account creation project with postgresql as database and a connection token with JWT
 
 ## 🔧 Tech Stack
 
@@ -22,12 +22,12 @@ A login and account creation project with posgreSQL as database and a connection
     - Method Check
     - Link method to pattern
 - Auto linked database with .env
-- Refactoring directories for a better visiblity 
-- Refactoring Docker Compose for less files
+- Refactoring directories for a better visibility 
+- Refactoring Docker Compose for fewer files
 
 ## 💡 WIP
 
-- JWT with Asymetric encryption
+- JWT with Asymmetric encryption
 - Update Database model
 - add css for better front-end
 
