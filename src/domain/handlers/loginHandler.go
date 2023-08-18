@@ -15,15 +15,15 @@ func (h *Handler) LoginPage(w http.ResponseWriter, req *http.Request) {
 }
 
 func (h *Handler) LoginListPage(w http.ResponseWriter, req *http.Request) {
-	accoutsList := account.GetAll()
-	if accoutsList == nil {
+	accountsList := account.GetAll()
+	if accountsList == nil {
 		fmt.Fprintln(w, "Database Error")
 		return
 	}
 
 	fmt.Fprintln(w, "List of accounts: ")
-	for _, account := range *accoutsList {
-		fmt.Fprintln(w, account.Id, account.Username, account.Email, account.Password)
+	for _, acc := range *accountsList {
+		fmt.Fprintln(w, acc.Id, acc.Username, acc.Email, acc.Password)
 	}
 }
 
@@ -32,15 +32,15 @@ func (h *Handler) LoginConnection(w http.ResponseWriter, req *http.Request) {
 	emailForm := req.FormValue("email")
 	passwordForm := req.FormValue("password")
 
-	account := account.GetByEmail(emailForm)
-	if account == nil {
+	acc := account.GetByEmail(emailForm)
+	if acc == nil {
 		fmt.Fprintln(w, "Email not found")
 		return
 	}
 
-	if account.Password == passwordForm {
+	if acc.Password == passwordForm {
 
-		to, err := token.New(account.Username, "login")
+		to, err := token.New(acc.Username, "login")
 		if err != nil {
 			fmt.Fprintln(w, err)
 			return
