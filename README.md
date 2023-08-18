@@ -11,11 +11,17 @@ A login and account creation project with posgreSQL as database and a connection
 **Version:**
 1.21.0
 
+## 📃 Requirement
+
+- Linux
+- Docker
+
 ## 🔨 Update
 
 - Adding Route Config
     - Method Check
     - Link method to pattern
+- Auto linked database with .env
 - Refactoring directories for a better visiblity 
 - Refactoring Docker Compose for less files
 
