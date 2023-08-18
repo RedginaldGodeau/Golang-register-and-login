@@ -1,4 +1,4 @@
 #!/bin/bash
 
-make build
+echo -e "Run Go Project :\n##################################"
 docker compose up -d

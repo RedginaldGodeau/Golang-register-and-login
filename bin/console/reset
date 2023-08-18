@@ -1,3 +1,4 @@
 #!/bin/bash
 
+echo -e "Reset Database :\n##################################"
 docker-compose rm -sfv database
